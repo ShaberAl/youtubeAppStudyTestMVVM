@@ -18,7 +18,7 @@ class MainViewModel {
     }
     
     func numbersOfRows(in section: Int) -> Int {
-        self.dataSource?.results.count ?? 0
+        dataSource?.results.count ?? 0
     }
     
     func getData() {
@@ -40,10 +40,17 @@ class MainViewModel {
     }
     
     func mapCellData() {
-        self.cellDataSource.value = self.dataSource?.results.compactMap({MovieTableCellViewModel(movie: $0)})
+        cellDataSource.value = self.dataSource?.results.compactMap({MovieTableCellViewModel(movie: $0)})
     }
     
     func getMovieTitle(_ movie: Movie) -> String {
         movie.title ?? movie.name ?? ""
+    }
+    
+    func retriveMovie(with id: Int) -> Movie? {
+        guard let movie = dataSource?.results.first(where: {$0.id == id}) else {
+            return nil
+        }
+        return movie
     }
 }

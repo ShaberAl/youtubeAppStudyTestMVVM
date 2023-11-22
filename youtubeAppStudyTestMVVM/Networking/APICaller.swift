@@ -15,6 +15,11 @@ enum NetworkError: Error {
 public class APICaller {
     
     static func getTrendingMovies(completion: @escaping (_ result: Result<TrendingMovieModel, NetworkError>) -> Void) {
+        if NetworkConstant.shared.apiKey.isEmpty {
+            print("<!> API KEY is Missing <!>")
+            print("<!> Get One from: https://www.themoviedb.org/ <!>")
+            return
+        }
         
         let urlString = NetworkConstant.shared.serverAddress + "/trending/all/day?api_key=" + NetworkConstant.shared.apiKey
         guard let url = URL(string: urlString) else {

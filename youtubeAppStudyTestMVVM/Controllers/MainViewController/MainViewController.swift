@@ -29,7 +29,7 @@ class MainViewController: UIViewController {
     }
     
     func configView() {
-        self.title = "Main view"
+        self.title = "Top Trending Movies"
         self.view.backgroundColor = .systemBackground
         
         setupTableView()
@@ -37,13 +37,13 @@ class MainViewController: UIViewController {
     
     func bindViewModel() {
         viewModel.isLoading.bind { [weak self] isLoading in
-            guard let self = self, let isLoading = isLoading else { return }
+            guard let isLoading = isLoading else { return }
             
             DispatchQueue.main.async {
                 if isLoading {
-                    self.activityIndicator.startAnimating()
+                    self?.activityIndicator.startAnimating()
                 } else {
-                    self.activityIndicator.stopAnimating()
+                    self?.activityIndicator.stopAnimating()
                 }
             }
         }
@@ -53,6 +53,16 @@ class MainViewController: UIViewController {
             
             self.cellDataSource = movies
             self.reloadTableView()
+        }
+    }
+    
+    func openDetails(movieId: Int) {
+        guard let movie = viewModel.retriveMovie(with: movieId) else { return }
+        
+        DispatchQueue.main.async {
+            let detailsViewModel = DetailsMovieViewModel(movie: movie)
+            let detailsController = DetailsMovieViewController(viewModel: detailsViewModel)
+            self.navigationController?.pushViewController(detailsController, animated: true)
         }
     }
 }

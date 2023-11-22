@@ -16,7 +16,8 @@ class NetworkConstant {
     }
     
     public var apiKey: String {
-        "07f2c0c059417d20e9c24cbf356a9466"
+        // Your API key
+        ""
     }
     
     public var serverAddress: String {

@@ -34,7 +34,7 @@ struct Movie: Codable {
     let originalName, firstAirDate: String?
     
     enum CodingKeys: String, CodingKey {
-        case backdropPath = ""
+        case backdropPath = "backdrop_path"
         case id
         case title
         case originalTitle = "original_title"

@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="youtubeAppStudyTestMVVM" customModuleProvider="target">
             <connections>
+                <outlet property="activityIndicator" destination="aSj-AU-1je" id="1Au-QQ-YzY"/>
                 <outlet property="tableView" destination="VgQ-tz-lzL" id="4fP-L6-XZN"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -23,12 +24,18 @@
                     <rect key="frame" x="0.0" y="47" width="375" height="765"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="aSj-AU-1je">
+                    <rect key="frame" x="169" y="387.66666666666669" width="37" height="37"/>
+                    <color key="color" systemColor="systemGray2Color"/>
+                </activityIndicatorView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="VgQ-tz-lzL" secondAttribute="bottom" id="KKP-SG-1YA"/>
                 <constraint firstItem="VgQ-tz-lzL" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="KN7-4K-HYn"/>
+                <constraint firstItem="aSj-AU-1je" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="O7X-4E-HBL"/>
+                <constraint firstItem="aSj-AU-1je" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Ud0-Sy-UzY"/>
                 <constraint firstItem="VgQ-tz-lzL" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="aRF-kj-qyu"/>
                 <constraint firstItem="VgQ-tz-lzL" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="ou4-EV-rta"/>
             </constraints>
@@ -38,6 +45,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
